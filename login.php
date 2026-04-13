@@ -73,6 +73,16 @@ margin:auto;
     <p class="text-muted">Masuk ke dashboard anggota pramuka</p>
     <div class="row justify-content-center mt-4">
         <div class="col-md-4">
+            <?php if(isset($_GET['pesan'])): ?>
+                <div class="alert alert-warning">
+                    <?php 
+                    if($_GET['pesan'] == "gagal") echo "NTA atau Password salah!";
+                    elseif($_GET['pesan'] == "logout") echo "Berhasil keluar!";
+                    elseif($_GET['pesan'] == "denied") echo "Akses ditolak!";
+                    elseif($_GET['pesan'] == "berhasil_daftar") echo "Daftar berhasil, silakan login!";
+                    ?>
+                </div>
+            <?php endif; ?>
             <div class="login-card text-start">
                 <h6 class="mt-3 fw-bold">Selamat Datang</h6>
                 <small class="text-muted">Masukkan Username Dan Password Anda untuk melanjutkan</small>
