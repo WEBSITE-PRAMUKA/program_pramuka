@@ -1,5 +1,11 @@
 <?php
 session_start();
+if (isset($_SESSION['status_login'])) {
+    if ($_SESSION['role'] == 'admin') header("location:index_admin.php");
+    elseif ($_SESSION['role'] == 'bendahara') header("location:index_bendahara.php");
+    else header("location:index_anggota.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
