@@ -1,0 +1,263 @@
+/* style.css */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+.dashboard{
+display:flex;
+min-height:100vh;
+background:#f4efec;
+border-radius:10px;
+overflow:hidden;
+}
+
+/* Main */
+.main-content{
+flex:1;
+padding:25px;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.search-box{
+background:#fff;
+padding:10px 15px;
+border-radius:10px;
+width:55%;
+}
+
+.search-box input{
+border:none;
+outline:none;
+width:90%;
+}
+
+.profile{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.profile img{
+width:40px;
+height:40px;
+border-radius:50%;
+}
+
+.profile span{
+font-size:12px;
+color:#777;
+}
+
+/* Title */
+.title-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.title-row p{
+color:#666;
+margin-top:5px;
+}
+
+.btn-add{
+background:#2e7d32;
+color:#fff;
+border:none;
+padding:12px 18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* Achievement List */
+.achievement-list{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.item{
+background:#fff;
+padding:15px;
+border-radius:12px;
+display:flex;
+align-items:center;
+gap:12px;
+position:relative;
+box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+
+.medal{
+width:42px;
+height:42px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:18px;
+}
+
+.gold .medal{
+border:2px solid #f1b400;
+color:#f1b400;
+}
+
+.silver .medal{
+border:2px solid #9e9e9e;
+color:#9e9e9e;
+}
+
+.bronze .medal{
+border:2px solid #ff7a00;
+color:#ff7a00;
+}
+
+.item img{
+width:45px;
+height:45px;
+border-radius:50%;
+}
+
+.info h3{
+font-size:15px;
+}
+
+.info p{
+font-size:13px;
+color:#666;
+margin-top:3px;
+}
+
+.rank{
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+margin-left:auto;
+}
+
+.first{
+background:#fff3cd;
+color:#b8860b;
+}
+
+.second{
+background:#eee;
+color:#555;
+}
+
+.third{
+background:#ffe0cc;
+color:#ff6600;
+}
+
+.item small{
+position:absolute;
+right:15px;
+bottom:10px;
+color:#777;
+font-size:11px;
+}
+
+/* Modal */
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.55);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.modal-box{
+width:470px;
+background:#fff;
+padding:25px;
+border-radius:12px;
+animation:zoom .3s ease;
+}
+
+@keyframes zoom{
+from{transform:scale(.8);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+.modal-header{
+display:flex;
+justify-content:space-between;
+margin-bottom:20px;
+}
+
+.modal-header span{
+font-size:25px;
+cursor:pointer;
+}
+
+form label{
+display:block;
+margin:12px 0 6px;
+font-size:14px;
+}
+
+form input,
+form select{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:8px;
+outline:none;
+}
+
+.grid2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.upload-box{
+border:2px dashed #ccc;
+padding:25px;
+text-align:center;
+border-radius:10px;
+margin-top:8px;
+color:#666;
+}
+
+.modal-btn{
+display:flex;
+gap:10px;
+margin-top:20px;
+}
+
+.save{
+flex:1;
+background:#2e7d32;
+color:#fff;
+border:none;
+padding:12px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.cancel{
+flex:1;
+background:#eee;
+border:none;
+padding:12px;
+border-radius:8px;
+cursor:pointer;
+}
