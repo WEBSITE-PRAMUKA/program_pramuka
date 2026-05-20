@@ -80,11 +80,10 @@ $event_count = "3";
                 </div>
 
                 <div class="col-md-3 col-6 mb-3">
-                    <small class="text-muted">Jabatan</small>
+                    <small class="text-muted">Status</small>
                     <br>
-
                     <span class="badge bg-success px-3 py-2 rounded-pill">
-                        Bendahara
+                        <?= $status ?>
                     </span>
                 </div>
 
@@ -136,16 +135,16 @@ $event_count = "3";
 
             <!-- DATA KAS -->
             <div class="col-md-3 col-6 mb-4 reveal">
-                <a href="data_kas.php" class="quick-card bendahara-blue">
+                <a href="../anggota/absensi_anggota.php" class="quick-card bendahara-blue">
 
                     <div class="quick-icon">
-                        <i class="fa fa-chart-line"></i>
+                        <i class="fa fa-qrcode"></i>
                     </div>
 
-                    <h6>Data Kas</h6>
+                    <h6>Presensi</h6>
 
                     <small>
-                        Statistik Keuangan
+                        Scan Kehadiran
                     </small>
 
                 </a>
@@ -153,7 +152,7 @@ $event_count = "3";
 
             <!-- KEGIATAN -->
             <div class="col-md-3 col-6 mb-4 reveal">
-                <a href="kegiatan_anggota.php" class="quick-card bendahara-orange">
+                <a href="../anggota/kegiatan_anggota.php" class="quick-card bendahara-orange">
 
                     <div class="quick-icon">
                         <i class="fa fa-calendar-check"></i>

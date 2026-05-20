@@ -198,16 +198,16 @@ if ($max_global < 30000) $max_global = 30000;
 
     <!-- KAS -->
     <div class="col-md-3 col-6 mb-4 reveal">
-        <a href="kas_anggota.php" class="quick-card anggota-card-green">
+        <a href="galeri_anggota.php" class="quick-card anggota-card-green">
 
             <div class="quick-icon">
-                <i class="fa fa-wallet"></i>
+                <i class="fa fa-image"></i>
             </div>
 
-            <h6>Kas Umum</h6>
+            <h6>Galeri</h6>
 
             <small>
-                Cek Pembayaran
+                Lihat Kegiatan
             </small>
 
         </a>

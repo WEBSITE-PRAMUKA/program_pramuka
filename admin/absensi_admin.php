@@ -63,15 +63,15 @@ if (isset($_GET['hapus'])) {
                     </div>
                     <div class="mb-3">
                         <label class="small fw-bold">Nama Kegiatan</label>
-                        <input type="text" name="nama_kegiatan" class="form-control" placeholder="Misal: Latihan Rutin" required>
+                        <input type="text" name="nama_kegiatan" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="small fw-bold">Jam Mulai (Batas Tepat Waktu)</label>
-                        <input type="time" name="jam_mulai" class="form-control" value="08:00" required>
+                        <input type="time" name="jam_mulai" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="small fw-bold">Lokasi Patokan</label>
-                        <input type="text" name="lokasi" class="form-control" placeholder="Misal: Sanggar Pramuka" required>
+                        <input type="text" name="lokasi" class="form-control" required>
                     </div>
                     <button type="submit" name="simpan_kegiatan" class="btn btn-danger w-100 fw-bold">Buka Absensi</button>
                 </form>

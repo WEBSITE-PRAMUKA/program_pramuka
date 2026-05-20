@@ -208,7 +208,7 @@ if ($max_global < 100000) $max_global = 200000;
         <a href="kegiatan_admin.php" class="quick-card admin-card-blue">
 
             <div class="quick-icon">
-                <i class="fa fa-calendar-plus"></i>
+                <i class="fa-solid fa-campground"></i>
             </div>
 
             <h6>Kegiatan</h6>
@@ -225,7 +225,7 @@ if ($max_global < 100000) $max_global = 200000;
         <a href="absensi_admin.php" class="quick-card admin-card-dark">
 
             <div class="quick-icon">
-                <i class="fa fa-shield-alt"></i>
+                <i class="fa-solid fa-calendar-check"></i>
             </div>
 
             <h6>Absensi</h6>

@@ -62,7 +62,7 @@ if (isset($_POST['absen_sekarang'])) {
                                             echo "<option value='".$d['id_kegiatan']."'>".$d['nama_kegiatan']."</option>";
                                         }
                                     } else {
-                                        echo "<option disabled selected>Tidak ada kegiatan hari ini</option>";
+                                        echo "<option disabled selected></option>";
                                     }
                                     ?>
                                 </select>

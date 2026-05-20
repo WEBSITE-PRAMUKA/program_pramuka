@@ -77,15 +77,15 @@ if (!isset($_SESSION['status_login']) || $_SESSION['role'] != 'admin') {
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label class="small fw-bold">Judul Kegiatan</label>
-                                <input type="text" name="judul" class="form-control" placeholder="Contoh: Perkemahan Sabtu Minggu" required>
+                                <input type="text" name="judul" class="form-control"  required>
                             </div>
                             <div class="mb-3">
-                                <label class="small fw-bold">Tanggal (Teks)</label>
-                                <input type="text" name="tanggal" class="form-control" placeholder="Contoh: 15-18 Maret 2026" required>
+                                <label class="small fw-bold">Tanggal</label>
+                                <input type="date" name="tanggal" class="form-control"  required>
                             </div>
                             <div class="mb-3">
                                 <label class="small fw-bold">Lokasi</label>
-                                <input type="text" name="lokasi" class="form-control" placeholder="Contoh: Gunung Gede" required>
+                                <input type="text" name="lokasi" class="form-control"  required>
                             </div>
                             <div class="mb-3">
                                 <label class="small fw-bold">Deskripsi Singkat</label>

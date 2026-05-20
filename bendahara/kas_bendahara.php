@@ -38,7 +38,7 @@ $role = $_SESSION['role'];
                 <form action="../keuangan/proses_iuran.php" method="POST">
                     <div class="mb-3">
                         <label class="small fw-bold">Judul Periode</label>
-                        <input type="text" name="judul" class="form-control" placeholder="Misal: Iuran April 2026" required>
+                        <input type="text" name="judul" class="form-control" placeholder="Kas April 2026" required>
                     </div>
                     <div class="mb-3">
                         <label class="small fw-bold">Nama Anggota</label>

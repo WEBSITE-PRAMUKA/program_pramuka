@@ -96,7 +96,6 @@ $saldo_sekarang = $total_masuk - $total_keluar;
                                     <input type="text"
                                            name="keterangan"
                                            class="form-control"
-                                           placeholder="Contoh: Konsumsi"
                                            required>
                                 </div>
             
@@ -108,7 +107,7 @@ $saldo_sekarang = $total_masuk - $total_keluar;
                                     <input type="text"
                                            name="jumlah_item"
                                            class="form-control"
-                                           placeholder="Contoh: 10 Kotak"
+                                           placeholder="0"
                                            required>
                                 </div>
             
