@@ -148,9 +148,7 @@
         <div class="container text-start">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold text-white mb-3">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Logo_Pramuka.png" width="24" class="me-2">Pramuka Indonesia
-                    </h5>
+                    <h5 class="fw-bold text-white mb-3">Pramuka Indonesia</h5>
                     <p class="small text-light-50">Gerakan Pramuka Indonesia melahirkan karakter tangguh, terampil, dan berintegritas untuk masa depan bangsa.</p>
                 </div>
                 <div class="col-md-4 mb-4 px-md-5">
@@ -168,7 +166,7 @@
                 </div>
             </div>
             <hr class="border-secondary mt-4">
-            <p class="text-center small mb-0 text-light-50">© 2024 Web Pramuka. All Rights Reserved.</p>
+            <p class="text-center small mb-0 text-light-50">Manajemen Informatika 25'A.</p>
         </div>
     </footer>
 
