@@ -1,0 +1,696 @@
+/* =========================================
+   BODY
+========================================= */
+
+body{
+    background:#f5f1ed;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+
+    display:flex;
+    flex-direction:column;
+
+    min-height:100vh;
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.main-content{
+    flex:1;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    background:rgba(255,255,255,0.75);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    padding:14px 0;
+
+    border-bottom:1px solid rgba(255,255,255,0.2);
+
+    transition:0.4s ease;
+}
+
+.navbar.scrolled{
+    background:rgba(255,255,255,0.95);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+}
+
+.navbar-brand{
+    font-size:23px;
+    font-weight:700;
+}
+
+.navbar .nav-link{
+    position:relative;
+
+    font-size:13px;
+    font-weight:600;
+
+    color:#475569 !important;
+
+    margin:0 8px;
+
+    transition:0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active{
+    color:#16a34a !important;
+}
+
+.navbar .nav-link::after{
+    content:'';
+
+    position:absolute;
+
+    left:0;
+    bottom:-6px;
+
+    width:0%;
+    height:3px;
+
+    background:#16a34a;
+
+    border-radius:20px;
+
+    transition:0.3s ease;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after{
+    width:100%;
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.card{
+    border:none;
+
+    border-radius:22px;
+
+    background:white;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.05);
+
+    transition:0.35s ease;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+/* =========================================
+   BADGE
+========================================= */
+
+.badge-role{
+    background:#14532d;
+    color:white;
+
+    padding:4px 12px;
+
+    border-radius:8px;
+
+    font-size:12px;
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.section-title{
+    margin-top:30px;
+    margin-bottom:15px;
+
+    font-size:24px;
+    font-weight:700;
+
+    color:#0f172a;
+}
+
+/* =========================================
+   QUICK CARD
+========================================= */
+
+.quick-card{
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    text-decoration:none;
+
+    height:180px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    background:white;
+
+    transition:0.35s ease;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.06);
+}
+
+.quick-card::before{
+    content:'';
+
+    position:absolute;
+
+    top:-45px;
+    right:-45px;
+
+    width:130px;
+    height:130px;
+
+    border-radius:50%;
+
+    opacity:0.12;
+
+    transition:0.4s ease;
+}
+
+.quick-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 18px 35px rgba(0,0,0,0.10);
+}
+
+.quick-card:hover::before{
+    transform:scale(1.2);
+}
+
+/* =========================================
+   ICON
+========================================= */
+
+.quick-icon{
+    width:75px;
+    height:75px;
+
+    border-radius:22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:18px;
+
+    font-size:28px;
+
+    color:white;
+
+    transition:0.35s ease;
+}
+
+.quick-card:hover .quick-icon{
+    transform:scale(1.08) rotate(-4deg);
+}
+
+.quick-card h6{
+    font-size:17px;
+    font-weight:700;
+
+    margin-bottom:6px;
+
+    color:#0f172a;
+}
+
+.quick-card small{
+    font-size:13px;
+    color:#64748b;
+}
+
+/* =========================================
+   WARNA MENU
+========================================= */
+
+/* BLUE */
+.bendahara-blue::before{
+    background:#3feb25;
+}
+
+.bendahara-blue .quick-icon{
+    background:linear-gradient(135deg,#25eb2c,#4bf63b);
+}
+
+/* GREEN */
+.bendahara-green::before{
+    background:#16a34a;
+}
+
+.bendahara-green .quick-icon{
+    background:linear-gradient(135deg,#16a34a,#22c55e);
+}
+
+/* RED */
+.bendahara-red::before{
+    background:#dc2626;
+}
+
+.bendahara-red .quick-icon{
+    background:linear-gradient(135deg,#dc2626,#ef4444);
+}
+
+/* ORANGE */
+.bendahara-orange::before{
+    background:#ea580c;
+}
+
+.bendahara-orange .quick-icon{
+    background:linear-gradient(135deg,#ea580c,#fb923c);
+}
+
+/* =========================================
+   REVEAL
+========================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer,
+.admin-footer{
+    margin-top:auto;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:768px){
+
+    .quick-card{
+        height:165px;
+    }
+
+    .quick-icon{
+        width:65px;
+        height:65px;
+
+        font-size:24px;
+    }
+
+    .quick-card h6{
+        font-size:15px;
+    }
+
+}
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer{
+    margin-top:50px;
+
+    background:
+    linear-gradient(135deg,#14532d,#16a34a);
+
+    color:white;
+
+    padding:22px 35px;
+
+    box-shadow:
+    0 -5px 20px rgba(0,0,0,0.08);
+}
+
+.footer-content{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+}
+
+.footer-left h6{
+    margin:0;
+
+    font-weight:700;
+
+    font-size:16px;
+}
+
+.footer-left p{
+    margin:2px 0 0;
+
+    font-size:13px;
+
+    opacity:0.85;
+}
+
+.footer-center{
+    display:flex;
+
+    gap:12px;
+}
+
+.footer-center a{
+    width:38px;
+    height:38px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.12);
+
+    color:white;
+
+    font-size:15px;
+
+    transition:0.3s;
+}
+
+.footer-center a:hover{
+    transform:translateY(-4px) scale(1.08);
+
+    background:white;
+
+    color:#16a34a;
+}
+
+.footer-right small{
+    opacity:0.85;
+
+    font-size:13px;
+}
+
+/* =========================================
+   RESPONSIVE FOOTER
+========================================= */
+
+@media(max-width:768px){
+
+    .footer-content{
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer{
+    margin-top:60px;
+
+    background:
+    linear-gradient(135deg,#14532d,#16a34a);
+
+    color:white;
+
+    padding:35px 0;
+
+    box-shadow:
+    0 -5px 20px rgba(0,0,0,0.08);
+}
+
+.footer h6{
+    font-size:20px;
+    font-weight:700;
+
+    margin-bottom:10px;
+}
+
+.footer p{
+    font-size:14px;
+
+    opacity:0.85;
+
+    margin-bottom:15px;
+}
+
+.footer hr{
+    border-color:rgba(255,255,255,0.2);
+}
+
+.footer small{
+    opacity:0.8;
+
+    font-size:13px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:768px){
+
+    .footer{
+        padding:28px 15px;
+    }
+
+    .footer h6{
+        font-size:18px;
+    }
+
+}
+
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    background:rgba(255,255,255,0.72);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,0.2);
+
+    padding:14px 0;
+
+    transition:0.4s ease;
+}
+
+.navbar.scrolled{
+    background:rgba(255,255,255,0.95);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+}
+
+.navbar-brand{
+    font-size:23px;
+    font-weight:700;
+    color:#0f172a !important;
+}
+
+.navbar .nav-link{
+    position:relative;
+
+    font-size:13px;
+    font-weight:600;
+
+    color:#475569 !important;
+
+    margin:0 8px;
+
+    transition:0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active{
+    color:#25eb3f !important;
+}
+
+.navbar .nav-link::after{
+    content:'';
+
+    position:absolute;
+
+    left:0;
+    bottom:-6px;
+
+    width:0%;
+    height:3px;
+
+    background:#25eb3f;
+
+    border-radius:20px;
+
+    transition:0.3s ease;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after{
+    width:100%;
+}
+/* =========================================
+   CARD
+========================================= */
+.card{
+    border:none;
+    border-radius:18px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+.navbar{
+    background:#ffffff;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    padding:14px 0;
+}
+
+.navbar-brand{
+    font-weight:700;
+    font-size:22px;
+}
+
+.navbar .nav-link{
+    font-size:14px;
+    font-weight:600;
+    color:#555 !important;
+    margin:0 8px;
+    transition:0.3s;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active{
+    color:#0dfd41 !important;
+}
+
+/* =========================================
+   PROFILE NAVBAR
+========================================= */
+
+.admin-profile{
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    padding:8px 16px;
+
+    background:white;
+
+    border-radius:50px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.05);
+}
+
+.admin-icon{
+    width:46px;
+    height:46px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    linear-gradient(135deg,#25eb5d,#3bf660);
+
+    color:white;
+
+    font-size:16px;
+}
+
+.admin-info{
+    display:flex;
+    flex-direction:column;
+
+    line-height:1.1;
+}
+
+.admin-info small{
+    font-size:12px;
+
+    color:#64748b;
+}
+
+.admin-info span{
+    font-size:14px;
+    font-weight:700;
+
+    color:#0f172a;
+}
+
+/* =========================
+   SALDO BOX
+========================= */
+
+.saldo-box{
+    border:none;
+    border-radius:20px;
+
+    background:
+    linear-gradient(135deg,#16a34a,#22c55e);
+
+    color:white;
+
+    padding:25px 20px;
+
+    box-shadow:
+    0 10px 25px rgba(34,197,94,0.18);
+}
+
+.saldo-box h6{
+    font-size:12px;
+    letter-spacing:1px;
+}
+
+.saldo-box h3{
+    font-size:32px;
+}
+
+.saldo-box .badge{
+    font-size:11px;
+    padding:7px 12px;
+    border-radius:20px;
+}

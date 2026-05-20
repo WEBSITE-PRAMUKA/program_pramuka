@@ -1,0 +1,355 @@
+/* =========================================
+   Variabel Warna & Global Setting
+========================================= */
+:root {
+    --primary-green: #2d5a27;
+    --dark-green: #1b3a1a;
+    --light-green: #e8f5e9;
+    --primary-yellow: #ffc107;
+    --primary-brown: #5d4037;
+    --dark-brown: #3e2723;
+    --bg-color: #fdfaf5;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: #333;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================================
+   Typography & Utilities
+========================================= */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background-color: var(--primary-green);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* Title rata kiri untuk About section */
+section .row .section-title::after {
+    left: 0;
+    transform: none;
+}
+
+/* =========================================
+   Navbar Styling
+========================================= */
+.transition-navbar {
+    background-color: transparent !important;
+    padding: 20px 0;
+    transition: all 0.4s ease;
+}
+
+.transition-navbar .nav-link, 
+.transition-navbar .navbar-brand {
+    color: white !important;
+    font-weight: 500;
+}
+
+/* Navbar setelah di-scroll */
+.navbar-scrolled {
+    backdrop-filter: blur(10px);
+    background-color: rgba(62, 39, 35, 0.95) !important;
+    padding: 12px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary-yellow);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* =========================================
+   Hero Section (Latar Belakang Gambar)
+========================================= */
+.hero-section {
+    /* ... kode lainnya ... */
+    background: linear-gradient(135deg, rgba(27, 58, 26, 0.55), rgba(45, 90, 39, 0.55)), url('../assets/BG/BG.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    border-radius: 0 0 50px 50px;
+    overflow: hidden;
+}
+
+/* Overlay tipis opsional jika ingin ujung-ujungnya lebih gelap */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+/* Animasi mengambang sederhana pada teks Hero */
+.hero-title {
+    animation: floatingText 4s ease-in-out infinite;
+}
+
+@keyframes floatingText {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+/* =========================================
+   Buttons
+========================================= */
+.btn {
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-pramuka-yellow {
+    background-color: var(--primary-yellow);
+    color: #111;
+    border: none;
+}
+
+.btn-pramuka-yellow:hover {
+    background-color: #e0a800;
+    color: #000;
+}
+
+.btn-pramuka-green {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+}
+
+.btn-pramuka-green:hover {
+    background-color: var(--dark-green);
+    color: white;
+}
+
+/* Animasi hover tombol */
+.hover-bounce:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 15px rgba(255, 193, 7, 0.3);
+}
+
+.hover-float:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================
+   Cards & Profile Box
+========================================= */
+.profile-box {
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 35px 25px;
+    background: white;
+    border-radius: 16px;
+    transition: all 0.4s ease;
+}
+
+.shadow-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.custom-list {
+    list-style: none;
+    padding: 0;
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.custom-list li::before {
+    content: '•';
+    color: var(--primary-green);
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -4px;
+}
+
+.bg-light-custom {
+    background-color: #f4f8f4;
+}
+
+/* Service Cards */
+.service-card {
+    border: none;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(45, 90, 39, 0.1);
+}
+
+.service-icon {
+    width: 65px;
+    height: 65px;
+    background: var(--light-green);
+    color: var(--primary-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    font-size: 26px;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    background: var(--primary-green);
+    color: white;
+    transform: rotate(10deg) scale(1.1);
+}
+
+.link-hover {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .link-hover {
+    transform: translateX(5px);
+}
+
+/* =========================================
+   Images
+========================================= */
+.img-wrapper {
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.img-wrapper img {
+    transition: transform 0.6s ease;
+}
+
+.img-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* =========================================
+   Footer
+========================================= */
+.footer-top {
+    background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    border-radius: 40px 40px 0 0;
+}
+
+.footer-bottom {
+    background-color: var(--dark-brown);
+    color: #ccc;
+    padding: 50px 0 20px 0;
+}
+
+.text-light-50 {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.social-icon {
+    color: rgba(255,255,255,0.7);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+}
+
+.social-icon:hover {
+    background: var(--primary-yellow);
+    color: var(--dark-brown);
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   Scroll to Top Button
+========================================= */
+.scroll-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary-green);
+    color: white;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background: var(--dark-green);
+    transform: scale(1.1) translateY(0);
+}
