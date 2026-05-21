@@ -123,7 +123,6 @@
                 <h2 class="fw-bold mb-4 section-title">Tentang Instansi</h2>
                 <p class="text-muted" style="line-height: 1.8;">Gerakan Pramuka Indonesia adalah wadah pendidikan non-formal yang membentuk karakter generasi muda berlandaskan kedisiplinan, kepemimpinan, dan pengabdian masyarakat.</p>
                 <p class="text-muted" style="line-height: 1.8;">Melalui integrasi teknologi, kami berusaha menghadirkan tata kelola organisasi yang lebih modern tanpa meninggalkan nilai-nilai luhur kepanduan.</p>
-                <button class="btn btn-pramuka-green mt-3 px-4 py-2 hover-bounce">Baca Selengkapnya</button>
             </div>
             <div class="col-md-6 mt-4 mt-md-0" data-aos="zoom-in-left">
                 <div class="img-wrapper">
