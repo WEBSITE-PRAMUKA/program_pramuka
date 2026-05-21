@@ -14,7 +14,7 @@ $role = $_SESSION['role'];
 $nta  = $_SESSION['nta'];
 
 // Data Statis Admin
-$gugus         = "Kwartir Cabang";
+$gugus         = "jember";
 $status_label  = "Administrator";
 $total_anggota = "120";
 $kas_total     = "Rp 5.000.000";
@@ -160,7 +160,7 @@ $chart_keluar = makeSmoothPathUniform($pts_keluar, $max_global_grid);
                 <div class="row">
                     <div class="col-md-3"><h6><?php echo $nama ?></h6><small class="text-muted">Nama</small></div>
                     <div class="col-md-3"><h6><?php echo $nta ?></h6><small class="text-muted">NTA/ID</small></div>
-                    <div class="col-md-3"><h6><?php echo $gugus ?></h6><small class="text-muted">Otoritas</small></div>
+                    <div class="col-md-3"><h6><?php echo $gugus ?></h6><small class="text-muted">Kwatir Cabang</small></div>
                     <div class="col-md-3"><span class="badge bg-success">Online</span></div>
                 </div>
             </div>
