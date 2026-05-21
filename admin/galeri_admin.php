@@ -30,13 +30,14 @@ if (!isset($_SESSION['status_login']) || $_SESSION['role'] != 'admin') {
             <div class="card p-4 mb-5">
                 <h5 class="fw-bold mb-3">Buat Album Baru</h5>
                 <form action="../galeri/proses_galeri.php" method="POST" enctype="multipart/form-data">
-                    <div class="card upload-card mb-5 fade-up" onclick="document.getElementById('foto').click()" >
+                    <div class="card upload-card mb-4 fade-up" onclick="document.getElementById('foto').click()" style="cursor: pointer; text-align: center; padding: 20px; border: 2px dashed #ccc;">
                         <i class="fa fa-upload fa-3x text-muted mb-2"></i>
                         <h6 class="fw-bold">Upload Media</h6>
                         <p class="text-muted small">Ketuk untuk mengupload dokumentasi</p>
                         <input type="file" name="foto" id="foto" class="d-none" required onchange="previewText()">
                         <div id="file-name" class="small text-success fw-bold"></div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label class="small fw-bold">Judul Album</label>
@@ -44,15 +45,31 @@ if (!isset($_SESSION['status_login']) || $_SESSION['role'] != 'admin') {
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="small fw-bold">Kategori</label>
-                            <select name="kategori" class="form-select">
+                            <select name="kategori" class="form-select" required>
+                                <option value="Upcoming">Upcoming</option>
+                                <option value="Selesai">Selesai</option>
                                 <option value="Training">Training</option>
                                 <option value="Camping">Camping</option>
-                                <option value="Ceremony">Ceremony</option>
-                                <option value="Community Service">Community Service</option>
                             </select>
                         </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="small fw-bold">Tanggal Pelaksanaan</label>
+                            <input type="text" name="tanggal" class="form-control" placeholder="Contoh: 15-16 Maret 2026" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="small fw-bold">Lokasi</label>
+                            <input type="text" name="lokasi" class="form-control" placeholder="Contoh: Gunung Gede" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="small fw-bold">Jumlah Peserta</label>
+                            <input type="text" name="peserta" class="form-control" placeholder="Contoh: 120" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="small fw-bold">Deskripsi Singkat</label>
+                            <textarea name="deskripsi" class="form-control" rows="2" required></textarea>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-success px-4 fw-bold">Uplod Album</button>
+                    <button type="submit" class="btn btn-success px-4 fw-bold">Upload Album</button>
                 </form>
             </div>
 
