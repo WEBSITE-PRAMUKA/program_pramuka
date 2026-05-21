@@ -341,7 +341,6 @@ if ($max_global < 30000) $max_global = 30000;
             </div>
 
         </div>
-
     </div>
 
 </div>
