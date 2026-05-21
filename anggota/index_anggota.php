@@ -241,7 +241,7 @@ if ($max_global < 30000) $max_global = 30000;
             <h6>Kegiatan</h6>
 
             <small>
-                <?= $event_count ?> Event
+                Event
             </small>
 
         </a>

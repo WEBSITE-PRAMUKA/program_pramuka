@@ -161,7 +161,7 @@ $event_count = "3";
                     <h6>Kegiatan</h6>
 
                     <small>
-                        <?= $event_count ?> Event
+                        Event
                     </small>
 
                 </a>
