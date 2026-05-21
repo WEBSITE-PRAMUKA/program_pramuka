@@ -1,3 +1,6 @@
+<?php
+include "../config/koneksi.php";
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -122,103 +125,36 @@
         </div>
 
         <div class="row g-4">
+            <?php 
+            $delay = 100;
+            // Ambil data dari database, urutkan dari yang terbaru
+            $query = mysqli_query($conn, "SELECT * FROM galeri ORDER BY id_galeri DESC");
             
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            while($row = mysqli_fetch_assoc($query)): 
+            ?>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="<?= $delay ?>">
                 <div class="card card-galeri">
                     <div class="card-img-container">
-                        <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80" class="card-img-top" alt="Persami" style="height: 200px; object-fit: cover;">
-                        <span class="badge-upcoming text-uppercase">Upcoming</span>
+                        <img src="../assets/galeri/<?= htmlspecialchars($row['foto_cover'] ?? '') ?>" class="card-img-top" alt="<?= htmlspecialchars($row['judul_galeri'] ?? 'Galeri') ?>" style="height: 200px; object-fit: cover;">
+                        <span class="badge-upcoming text-uppercase"><?= htmlspecialchars($row['kategori'] ?? 'Umum') ?></span>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Perkemahan Sabtu Minggu (PERSAMI)</h5>
-                        <div class="info-item"><i class="far fa-calendar-alt"></i> 15-16 Maret 2026</div>
-                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> Gunung Gede Pangrango</div>
-                        <div class="info-item"><i class="fas fa-users"></i> 120 peserta</div>
-                        <p class="card-text">Kegiatan camping 2 hari 1 malam dengan berbagai aktivitas kepramukaan dan outbound.</p>
+                        <h5 class="card-title"><?= htmlspecialchars($row['judul_galeri'] ?? 'Tanpa Judul') ?></h5>
+                        
+                        <div class="info-item"><i class="far fa-calendar-alt"></i> <?= htmlspecialchars($row['tanggal'] ?? '-') ?></div>
+                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> <?= htmlspecialchars($row['lokasi'] ?? 'Lokasi belum ditentukan') ?></div>
+                        <div class="info-item"><i class="fas fa-users"></i> <?= htmlspecialchars($row['peserta'] ?? '0') ?> peserta</div>
+                        
+                        <p class="card-text"><?= htmlspecialchars($row['deskripsi'] ?? 'Belum ada deskripsi untuk kegiatan ini.') ?></p>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card card-galeri">
-                    <div class="card-img-container">
-                        <img src="https://images.unsplash.com/photo-1526726533690-5cbe947c9052?auto=format&fit=crop&q=80" class="card-img-top" alt="Jambore" style="height: 200px; object-fit: cover;">
-                        <span class="badge-upcoming text-uppercase">Upcoming</span>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Jambore Daerah 2026</h5>
-                        <div class="info-item"><i class="far fa-calendar-alt"></i> 5-10 Juli 2026</div>
-                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> Cibubur, Jakarta Timur</div>
-                        <div class="info-item"><i class="fas fa-users"></i> 500+ peserta</div>
-                        <p class="card-text">Pertemuan besar tingkat daerah dengan peserta dari seluruh Gugus Depan di Jakarta.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="card card-galeri">
-                    <div class="card-img-container">
-                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80" class="card-img-top" alt="Pionering" style="height: 200px; object-fit: cover;">
-                        <span class="badge-upcoming text-uppercase">Upcoming</span>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Lomba Pionering Tingkat Nasional</h5>
-                        <div class="info-item"><i class="far fa-calendar-alt"></i> 20 Agustus 2026</div>
-                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> Stadion Gelora Bung Karno</div>
-                        <div class="info-item"><i class="fas fa-users"></i> 200 tim</div>
-                        <p class="card-text">Kompetisi pionering antar Gugus Depan se-Indonesia dengan berbagai kategori lomba.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="card card-galeri">
-                    <div class="card-img-container">
-                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80" class="card-img-top" alt="Baksos" style="height: 200px; object-fit: cover;">
-                        <span class="badge-upcoming text-uppercase">Upcoming</span>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Bakti Sosial & Penghijauan</h5>
-                        <div class="info-item"><i class="far fa-calendar-alt"></i> 12 September 2026</div>
-                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> Desa Cisande, Bogor</div>
-                        <div class="info-item"><i class="fas fa-users"></i> 80 peserta</div>
-                        <p class="card-text">Kegiatan pengabdian masyarakat dengan menanam 1000 pohon dan membersihkan lingkungan.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card card-galeri">
-                    <div class="card-img-container">
-                        <img src="https://images.unsplash.com/photo-1517164850305-99a3e65bb47e?auto=format&fit=crop&q=80" class="card-img-top" alt="Pelantikan" style="height: 200px; object-fit: cover;">
-                        <span class="badge-upcoming text-uppercase">Upcoming</span>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Pelantikan Anggota Baru</h5>
-                        <div class="info-item"><i class="far fa-calendar-alt"></i> 5 Oktober 2026</div>
-                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> Gedung Serbaguna Pramuka</div>
-                        <div class="info-item"><i class="fas fa-users"></i> 150 peserta</div>
-                        <p class="card-text">Upacara pelantikan anggota baru dan penyematan Tanda Kecakapan Umum (TKU).</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="card card-galeri">
-                    <div class="card-img-container">
-                        <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&q=80" class="card-img-top" alt="Kemah Akhir Tahun" style="height: 200px; object-fit: cover;">
-                        <span class="badge-upcoming text-uppercase">Upcoming</span>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Kemah Bhakti Akhir Tahun</h5>
-                        <div class="info-item"><i class="far fa-calendar-alt"></i> 20-25 Desember 2026</div>
-                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> Pantai Anyer, Banten</div>
-                        <div class="info-item"><i class="fas fa-users"></i> 250 peserta</div>
-                        <p class="card-text">Kemah penutup tahun dengan kegiatan kreativitas, api unggun, dan refleksi tahunan.</p>
-                    </div>
-                </div>
-            </div>
-
+            <?php 
+                // Logika agar animasi AOS bervariasi (100, 200, 300)
+                $delay += 100;
+                if($delay > 300) $delay = 100;
+            endwhile; 
+            ?>
         </div>
     </div>
 
