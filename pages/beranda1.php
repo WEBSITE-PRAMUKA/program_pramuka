@@ -157,14 +157,17 @@
                 <div class="col-md-4 mb-4 text-md-end">
                     <h6 class="fw-bold text-white mb-3">Media Sosial</h6>
                     <div class="d-flex justify-content-md-end gap-3 fs-4">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/share/1ChLFRMV8F/" target="_blank" rel="noopener noreferrer" class="social-icon">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/grapaska_yunisma?igsh=MTEybHk4dzI0Y2VuYg==" target="_blank" rel="noopener noreferrer" class="social-icon">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
             </div>
             <hr class="border-secondary mt-4">
-            <p class="text-center small mb-0 text-light-50">Manajemen Informatika 25'A.</p>
+            <p class="text-center small mb-0 text-light-50">SMK Ma'arif NU Kencong</p>
         </div>
     </footer>
 
