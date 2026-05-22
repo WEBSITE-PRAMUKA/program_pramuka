@@ -44,7 +44,16 @@ $role = $_SESSION['role'];
                 ?>
                 <div class="col-md-6 mb-4">
                     <div class="card card-kegiatan">
-                        <span class="badge-upcoming">Akan Datang</span>
+                        <?php
+                        $tanggal_kegiatan = $row['tanggal'];
+                        $hari_ini = date('Y-m-d');
+
+                        if ($tanggal_kegiatan >= $hari_ini) {
+                            echo '<span class="badge-upcoming">Akan Datang</span>';
+                        } else {
+                            echo '<span class="badge-upcoming">Sudah Lewat</span>';
+                        }
+                        ?>
                         <img src="../assets/kegiatan/<?= $row['gambar'] ?>" class="img-kegiatan" alt="Kegiatan">
                         <div class="card-body p-4">
                             <h5 class="text-kegiatan-title mb-3"><?= $row['judul'] ?></h5>

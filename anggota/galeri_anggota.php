@@ -43,18 +43,66 @@ $role = $_SESSION['role'];
                 if(mysqli_num_rows($query) > 0) {
                     while($row = mysqli_fetch_assoc($query)): 
                 ?>
-                <div class="col-md-4 mb-4">
-                    <div class="card card-galeri shadow-sm h-100">
-                        <div class="img-container">
-                            <img src="../assets/galeri/<?= $row['foto_cover'] ?>" alt="Cover">
-                        </div>
-                        <div class="card-body">
-                            <span class="badge bg-success mb-2 text-uppercase" style="font-size: 0.7rem;"><?= $row['kategori'] ?></span>
-                            <h6 class="fw-bold mb-1 text-dark"><?= $row['judul_galeri'] ?></h6>
-                            <small class="text-muted"><i class="fa fa-calendar-alt me-1 small"></i> <?= date('d M Y', strtotime($row['tanggal_dibuat'])) ?></small>
-                        </div>
+               <div class="col-md-4 mb-4">
+                <div class="card card-galeri shadow-sm h-100"
+                    data-bs-toggle="modal"data-bs-target="#modal<?= $row['id_galeri'] ?>"
+                    style="cursor:pointer;">
+                    
+                    <div class="img-container">
+                        <img src="../assets/galeri/<?= $row['foto_cover'] ?>" alt="Cover">
+                    </div>
+
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2 text-uppercase"
+                                style="font-size: 0.7rem;">
+                            <?= $row['kategori'] ?>
+                        </span>
+
+                        <h6 class="fw-bold mb-1 text-dark">
+                         <?= $row['judul_galeri'] ?>
+                        </h6>
+
+                        <small class="text-muted">
+                            <i class="fa fa-calendar-alt me-1 small"></i>
+                            <?= date('d M Y', strtotime($row['tanggal_dibuat'])) ?>
+                        </small>
                     </div>
                 </div>
+            </div>
+
+        
+            <div class="modal fade"
+                id="modal<?= $row['id_galeri'] ?>"
+                tabindex="-1">
+
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content border-0">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                <?= $row['judul_galeri'] ?>
+                            </h5>
+
+                            <button type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal">
+                            </button>
+                        </div>
+
+                        <div class="modal-body text-center">
+
+                            <img src="../assets/galeri/<?= $row['foto_cover'] ?>"
+                                class="img-fluid rounded">
+
+                            <p class="mt-3 text-muted">
+                                <?= $row['kategori'] ?>
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
                 <?php 
                     endwhile; 
                 } else {

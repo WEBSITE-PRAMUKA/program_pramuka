@@ -45,24 +45,19 @@ if (!isset($_SESSION['status_login']) || $_SESSION['role'] != 'admin') {
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="small fw-bold">Kategori</label>
-                            <select name="kategori" class="form-select" required>
-                                <option value="Upcoming">Upcoming</option>
-                                <option value="Selesai">Selesai</option>
-                                <option value="Training">Training</option>
-                                <option value="Camping">Camping</option>
-                            </select>
+                            <input type="text" name="kategori"class="form-control" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="small fw-bold">Tanggal Pelaksanaan</label>
-                            <input type="text" name="tanggal" class="form-control" placeholder="Contoh: 15-16 Maret 2026" required>
+                            <input type="text" name="tanggal" class="form-control" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="small fw-bold">Lokasi</label>
-                            <input type="text" name="lokasi" class="form-control" placeholder="Contoh: Gunung Gede" required>
+                            <input type="text" name="lokasi" class="form-control" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="small fw-bold">Jumlah Peserta</label>
-                            <input type="text" name="peserta" class="form-control" placeholder="Contoh: 120" required>
+                            <input type="text" name="peserta" class="form-control" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="small fw-bold">Deskripsi Singkat</label>
