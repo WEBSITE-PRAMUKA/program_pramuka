@@ -221,7 +221,7 @@ label{
                     </div>
                     <div class="mt-3">
                         <label>Gugus Depan *</label>
-                        <input type="text" name="gugus" class="form-control" placeholder="Gugus Depan" required>
+                        <input type="text" name="gugus" class="form-control" placeholder="Nomor Gugus Depan" required>
                     </div>
                     <div class="mt-3">
                         <label>Jenis Kelamin *</label>

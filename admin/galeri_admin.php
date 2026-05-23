@@ -49,7 +49,7 @@ if (!isset($_SESSION['status_login']) || $_SESSION['role'] != 'admin') {
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="small fw-bold">Tanggal Pelaksanaan</label>
-                            <input type="text" name="tanggal" class="form-control" required>
+                            <input type="date" name="tanggal" class="form-control" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="small fw-bold">Lokasi</label>

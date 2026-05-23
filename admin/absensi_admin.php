@@ -66,7 +66,7 @@ if (isset($_GET['hapus'])) {
                         <input type="text" name="nama_kegiatan" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label class="small fw-bold">Jam Mulai (Batas Tepat Waktu)</label>
+                        <label class="small fw-bold">Jam Selesai (Batas Tepat Waktu)</label>
                         <input type="time" name="jam_mulai" class="form-control" required>
                     </div>
                     <div class="mb-3">

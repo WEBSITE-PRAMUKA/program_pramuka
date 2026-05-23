@@ -71,7 +71,7 @@
                 <div class="col-md-8 mb-4 text-start">
                     <div class="profile-box shadow-hover h-100">
                         <div class="text-center mb-3"><i class="fas fa-book-open text-warning fs-2"></i></div>
-                        <h5 class="fw-bold border-bottom pb-2 text-center">Sejarah Singkat</h5>
+                        <h5 class="fw-bold border-bottom pb-2 text-center">Sejarah Singkat Kepramukaan</h5>
                         <ul class="small text-muted mt-3 custom-list">
                             <li>Tokoh-tokoh kepramukaan banyak lahir di zaman Perang Dunia Pertama.</li>
                             <li>Baden Powell awalnya membawa kegiatannya ke luar Inggris.</li>
@@ -120,7 +120,7 @@
     <section class="container py-5 my-5">
         <div class="row align-items-center" data-aos="fade-right">
             <div class="col-md-6 pe-md-5">
-                <h2 class="fw-bold mb-4 section-title">Tentang Instansi</h2>
+                <h2 class="fw-bold mb-4 section-title">Tentang Kami</h2>
                 <p class="text-muted" style="line-height: 1.8;">Gerakan Pramuka Indonesia adalah wadah pendidikan non-formal yang membentuk karakter generasi muda berlandaskan kedisiplinan, kepemimpinan, dan pengabdian masyarakat.</p>
                 <p class="text-muted" style="line-height: 1.8;">Melalui integrasi teknologi, kami berusaha menghadirkan tata kelola organisasi yang lebih modern tanpa meninggalkan nilai-nilai luhur kepanduan.</p>
             </div>
@@ -156,11 +156,14 @@
                 <div class="col-md-4 mb-4 text-md-end">
                     <h6 class="fw-bold text-white mb-3">Media Sosial</h6>
                     <div class="d-flex justify-content-md-end gap-3 fs-4">
-                        <a href="https://www.facebook.com/share/1ChLFRMV8F/" target="_blank" rel="noopener noreferrer" class="social-icon">
+                        <a href="https://www.facebook.com/share/17awpEArR1/" target="_blank" rel="noopener noreferrer" class="social-icon">
                             <i class="fab fa-facebook"></i>
                         </a>
                         <a href="https://www.instagram.com/grapaska_yunisma?igsh=MTEybHk4dzI0Y2VuYg==" target="_blank" rel="noopener noreferrer" class="social-icon">
                             <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@grapaska_yunisma?_r=1&_t=ZS-96bWHdSFUSV" target="_blank" rel="noopener noreferrer" class="social-icon">
+                            <i class="fa-brands fa-tiktok"></i>
                         </a>
                     </div>
                 </div>
