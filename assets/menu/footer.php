@@ -14,7 +14,7 @@ $role = $_SESSION['role'];
             <h6 class="fw-bold">Dashboard Admin Pramuka</h6>
 
             <p class="small opacity-75">
-                Kelola seluruh sistem pramuka dengan aman dan modern.
+                Bersama Pramuka Membangun Generasi.
             </p>
 
         <?php elseif($role == 'bendahara'): ?>

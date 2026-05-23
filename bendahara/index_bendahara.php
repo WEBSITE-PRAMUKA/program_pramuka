@@ -110,7 +110,7 @@ $event_count = "3";
                     <h6>Input Kas</h6>
 
                     <small>
-                        Catat Iuran
+                        Catatan Keuangan
                     </small>
 
                 </a>

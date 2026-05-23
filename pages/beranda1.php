@@ -103,14 +103,14 @@
                 <div class="card service-card p-4 h-100">
                     <div class="service-icon"><i class="fas fa-calendar-check"></i></div>
                     <h5 class="fw-bold mt-3">Sistem Absensi</h5>
-                    <p class="small text-muted flex-grow-1">Kelola pencatatan kehadiran anggota dalam setiap kegiatan rutin maupun perkemahan.</p>
+                    <p class="small text-muted flex-grow-1">Pantau kehadiran anggota Pramuak secara digital dalam setiap kegiatan.</p>
                 </div>
             </div>
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                 <div class="card service-card p-4 h-100">
                     <div class="service-icon"><i class="fas fa-wallet"></i></div>
                     <h5 class="fw-bold mt-3">Manajemen Kas</h5>
-                    <p class="small text-muted flex-grow-1">Pantau transparansi iuran anggota dan rekapitulasi keuangan secara *real-time*.</p>
+                    <p class="small text-muted flex-grow-1">Permudah pencatatan iuran serta laporan kas secara rapi dan terpercaya.</p>
                 </div>
             </div>
         </div>
