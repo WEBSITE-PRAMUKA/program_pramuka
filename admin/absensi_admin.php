@@ -7,7 +7,7 @@ if (!isset($_SESSION['status_login']) || $_SESSION['role'] != 'admin') {
     header("location:../auth/login.php?pesan=denied");
     exit;
 }
-
+// Halo
 // Proses Simpan Jadwal Kegiatan Baru
 if (isset($_POST['simpan_kegiatan'])) {
     $tgl = $_POST['tanggal'];
