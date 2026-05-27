@@ -21,10 +21,15 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top transition-navbar">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center fw-bold" href="#"></a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-toggle="target="#navbarNav">
+            <a class="navbar-brand d-flex align-items-center fw-bold" >
+                <img src="../assets/LOGO/logo-bg.png" alt="Logo Tunas Kelapa" height="47" class="me-2">
+                 <img src="../assets/LOGO/Wosm-Negatif.png" alt="Wosm Negatif" height="55" class="me-2">
+                </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fas fa-bars text-white"></i>
             </button>
+            
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav mx-auto gap-3">
                     <li class="nav-item"><a class="nav-link" href="beranda1.php">Beranda</a></li>
@@ -32,13 +37,13 @@
                     <li class="nav-item"><a class="nav-link" href="../galeri/GaleryLog.php">Galeri</a></li>
                 </ul>
             </div>
+            
             <div class="d-none d-lg-flex gap-2">
                 <a href="../auth/login.php" class="btn btn-outline-light btn-sm rounded-pill px-3">Login</a>
                 <a href="../auth/daftar.php" class="btn btn-pramuka-yellow btn-sm rounded-pill px-3 fw-semibold">Daftar Anggota</a>
             </div>
         </div>
     </nav>
-
     <!-- Hero Section -->
     <header class="hero-section" style="background: linear-gradient(135deg, rgba(27, 58, 26, 0.55), rgba(45, 90, 39, 0.55)), url('../assets/BG/BG.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         
