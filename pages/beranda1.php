@@ -19,7 +19,7 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top transition-navbar">
+<nav class="navbar navbar-expand-lg fixed-top transition-navbar">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center fw-bold" >
                 <img src="../assets/LOGO/logo-bg.png" alt="Logo Tunas Kelapa" height="47" class="me-2">
@@ -49,7 +49,7 @@
         
         <div class="hero-overlay"></div>
         <div class="container hero-content" data-aos="zoom-in" data-aos-duration="1000">
-            <h1 class="display-3 fw-bold hero-title">Satyaku Kudarmabaktikan<br>Darmaku Kubaktikan</h1>
+            <h1 class="display-3 fw-bold hero-title">Satyaku Kudarmakan<br>Darmaku Kubaktikan</h1>
             <p class="lead my-4 mx-auto hero-subtitle">Bergabunglah dengan Gerakan Pramuka Indonesia untuk mengembangkan karakter, keterampilan, dan jiwa kepemimpinan Anda.</p>
             <div class="d-flex justify-content-center gap-3">
                 <a href="../auth/daftar.php" class="btn btn-pramuka-yellow btn-lg px-4 py-2 hover-bounce">Daftar Anggota <i class="fas fa-chevron-right ms-1"></i></a>
@@ -78,9 +78,11 @@
                         <div class="text-center mb-3"><i class="fas fa-book-open text-warning fs-2"></i></div>
                         <h5 class="fw-bold border-bottom pb-2 text-center">Sejarah Singkat Kepramukaan</h5>
                         <ul class="small text-muted mt-3 custom-list">
-                            <li>Tokoh-tokoh kepramukaan banyak lahir di zaman Perang Dunia Pertama.</li>
-                            <li>Baden Powell awalnya membawa kegiatannya ke luar Inggris.</li>
+                            <li>1907 (Awal Mula Dunia): Robert Baden-Powell menginisiasi perkemahan remaja pertama di Pulau Brownsea, Inggris, yang menjadi cikal bakal kepanduan dunia.</li>
                             <li>Buku "Scouting for Boys" menjadi awal populer kepanduan dunia.</li>
+                            <li>1912 (Masuk ke Indonesia): Semangat kepanduan masuk ke tanah air pada masa kolonial melalui organisasi bentukan Belanda, NIPV.</li>
+                            <li>Masa Pergerakan Nasional: Terinspirasi dari global, para tokoh bangsa mendirikan puluhan organisasi kepanduan lokal berbasis nasionalisme yang turut mengobarkan semangat Sumpah Pemuda.</li>
+                            <li>1961 (Lahirnya Gerakan Pramuka): Presiden Soekarno melebur seluruh organisasi kepanduan yang terpecah menjadi satu wadah tunggal bernama Gerakan Pramuka.</li>
                             <li>Gerakan Pramuka Indonesia resmi diperkenalkan pada 14 Agustus 1961.</li>
                         </ul>
                     </div>
