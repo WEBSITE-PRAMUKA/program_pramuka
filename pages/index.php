@@ -32,7 +32,7 @@
             
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav mx-auto gap-3">
-                    <li class="nav-item"><a class="nav-link" href="beranda1.php">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="../auth/daftar.php">Pendaftaran</a></li>
                     <li class="nav-item"><a class="nav-link" href="../galeri/GaleryLog.php">Galeri</a></li>
                 </ul>

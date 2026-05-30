@@ -246,7 +246,7 @@ justify-content:center;
         <a class="navbar-brand fw-bold" href="#">Pramuka</a>
         <nav class="navbar navbar-expand-lg">
             <div class="ms-auto">
-                <a href="../pages/beranda1.php" class="btn btn-outline-secondary btn-sm">Kembali</a>
+                <a href="../pages/index.php" class="btn btn-outline-secondary btn-sm">Kembali</a>
                 <a href="login.php" class="btn btn-outline-secondary btn-sm">Login</a>
                 <a href="daftar.php" class="btn btn-outline-secondary btn-sm">Daftar Anggota</a>
             </div>
