@@ -25,9 +25,12 @@ if (isset($_POST['simpan_kegiatan'])) {
 
 // Proses Hapus
 if (isset($_GET['hapus'])) {
-    $id = $_GET['hapus'];
-    mysqli_query($conn, "DELETE FROM absensi_hasil WHERE id_hasil = '$id'");
+    $id = (int) $_GET['hapus'];
+
+    mysqli_query($conn, "DELETE FROM absensi_hasil WHERE id_hasil = $id");
+
     header("location:absensi_admin.php?pesan=terhapus");
+    exit;
 }
 ?>
 

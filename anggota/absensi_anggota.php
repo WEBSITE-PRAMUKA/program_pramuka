@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Asia/Jakarta');
 include "../config/koneksi.php";
 include "../assets/menu/anggota-navbar.php";
 
@@ -72,7 +73,7 @@ if (isset($_POST['absen_sekarang'])) {
                                             echo "<option value='".$d['id_kegiatan']."'>".$d['nama_kegiatan']."</option>";
                                         }
                                     } else {
-                                        echo "<option disabled selected>Belum ada kegiatan hari ini</option>";
+                                        echo "<option disabled selected></option>";
                                     }
                                     ?>
                                 </select>
