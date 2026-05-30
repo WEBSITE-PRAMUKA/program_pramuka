@@ -1,8 +1,8 @@
 <?php
-$host     = "localhost";
-$user     = "root";
-$password = "";
-$database = "pramuka";
+$host     = "mif.myhost.id";
+$user     = "mifmyho2_A3";
+$password = "@MIF2025";
+$database = "mifmyho2_A3";
 
 $conn = mysqli_connect($host, $user, $password, $database);
 

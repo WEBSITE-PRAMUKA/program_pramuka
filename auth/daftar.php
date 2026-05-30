@@ -190,7 +190,7 @@ label{
     <div class="container">
         <a class="navbar-brand fw-bold" href="#">Pramuka</a>
         <div class="ms-auto">
-            <a href="../pages/index.php" class="btn btn-outline-secondary btn-sm">Kembali</a>
+            <a href="../index.php" class="btn btn-outline-secondary btn-sm">Kembali</a>
             <a href="login.php" class="btn btn-outline-secondary btn-sm">Login</a>
             <a href="#" class="btn btn-outline-secondary btn-sm">Daftar Anggota</a>
         </div>
