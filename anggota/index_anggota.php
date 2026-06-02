@@ -12,7 +12,12 @@ $nama   = $_SESSION['nama'];
 $role   = $_SESSION['role'];
 $nta    = $_SESSION['nta'];
 
-$gugus         = "12-001";
+// === MENGAMBIL DATA USER DARI DATABASE ===
+$query_user = mysqli_query($conn, "SELECT gugus FROM users WHERE nta = '$nta'");
+$data_user  = mysqli_fetch_assoc($query_user);
+
+// Cek apakah gugus ada isinya, jika tidak tampilkan default
+$gugus         = (!empty($data_user['gugus'])) ? $data_user['gugus'] : "Belum diisi"; 
 $status        = "Aktif";
 $kehadiran     = "8/10";
 $event_count   = "3";
@@ -106,7 +111,7 @@ if ($max_global < 30000) $max_global = 30000;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Anggota - <?php echo $nama ?></title>
+    <title>Dashboard Anggota - <?php echo htmlspecialchars($nama) ?></title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
@@ -122,11 +127,11 @@ if ($max_global < 30000) $max_global = 30000;
         <!-- HEADER -->
         <div class="mb-4 reveal">
             <h3 class="fw-bold mb-1">
-                Selamat Datang, <?= $nama ?>!
+                Selamat Datang, <?= htmlspecialchars($nama) ?>!
             </h3>
 
             <p class="text-muted">
-                NTA : <?= $nta ?>
+                NTA : <?= htmlspecialchars($nta) ?>
                 |
                 Status :
                 <span class="badge-role">
@@ -146,17 +151,17 @@ if ($max_global < 30000) $max_global = 30000;
 
                 <div class="col-md-3 col-6 mb-3">
                     <small class="text-muted">Nama Lengkap</small>
-                    <h6 class="fw-bold mt-1"><?= $nama ?></h6>
+                    <h6 class="fw-bold mt-1"><?= htmlspecialchars($nama) ?></h6>
                 </div>
 
                 <div class="col-md-3 col-6 mb-3">
                     <small class="text-muted">NTA</small>
-                    <h6 class="fw-bold mt-1"><?= $nta ?></h6>
+                    <h6 class="fw-bold mt-1"><?= htmlspecialchars($nta) ?></h6>
                 </div>
 
                 <div class="col-md-3 col-6 mb-3">
                     <small class="text-muted">Gugus Depan</small>
-                    <h6 class="fw-bold mt-1"><?= $gugus ?></h6>
+                    <h6 class="fw-bold mt-1"><?= htmlspecialchars($gugus) ?></h6>
                 </div>
 
                 <div class="col-md-3 col-6 mb-3">
@@ -296,7 +301,7 @@ if ($max_global < 30000) $max_global = 30000;
                         <tr>
 
                             <td class="fw-bold">
-                                <?= $iuran['judul_tanggal']; ?>
+                                <?= htmlspecialchars($iuran['judul_tanggal']); ?>
                             </td>
 
                             <td>
