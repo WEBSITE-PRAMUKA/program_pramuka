@@ -96,7 +96,7 @@
                     <div class="service-icon"><i class="fas fa-user-plus"></i></div>
                     <h5 class="fw-bold mt-3">Pendaftaran Anggota</h5>
                     <p class="small text-muted flex-grow-1">Daftarkan diri Anda sebagai anggota secara online dengan cepat dan mudah.</p>
-                    <a href="../auth/daftar.php" class="text-success text-decoration-none fw-bold small link-hover">Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                    <a href="../auth/daftar.php" class="text-success text-decoration-none fw-bold small link-hover"> Cek Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
                 </div>
             </div>
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
