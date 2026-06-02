@@ -3,7 +3,6 @@ session_start();
 include "../config/koneksi.php";
 include "../assets/menu/admin-navbar.php";
 
-
 if (!isset($_SESSION['status_login']) || $_SESSION['role'] != 'admin') {
     header("location:../auth/login.php?pesan=denied");
     exit;
@@ -16,82 +15,68 @@ $nta  = $_SESSION['nta'];
 // Data Statis Admin
 $gugus         = "jember";
 $status_label  = "Administrator";
-$total_anggota = "120";
-$kas_total     = "Rp 5.000.000";
+$total_anggota = "120"; // Ini bisa Anda buat dinamis kedepannya
 
-// === DATA GRAFIK ===
-$bulan_arr = ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+// === DATA GRAFIK & KEUANGAN ===
+// Standarisasi untuk 12 Bulan
+$bulan_arr = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des'];
+$tahun_ini = 2026; // Anda bisa ubah menjadi date('Y') jika ingin otomatis tahun berjalan
 
-// Ambil data real dari database
-$data_pemasukan_real = array_fill(0, 9, 0);
-$query_masuk = "SELECT MONTH(tanggal_bayar) as bulan, SUM(nominal) as total 
-                FROM iuran_anggota WHERE YEAR(tanggal_bayar) = 2026 GROUP BY MONTH(tanggal_bayar)";
-$result_masuk = mysqli_query($conn, $query_masuk);
-if ($result_masuk) {
-    while ($row = mysqli_fetch_assoc($result_masuk)) {
-        $index = $row['bulan'] - 4;
-        if ($index >= 0 && $index < 9) $data_pemasukan_real[$index] = (int)$row['total'];
-    }
-}
+$data_pemasukan = array_fill(0, 12, 0);
+$data_pengeluaran = array_fill(0, 12, 0);
 
-$data_pengeluaran_real = array_fill(0, 9, 0);
-$query_keluar = "SELECT MONTH(tanggal) as bulan, SUM(jumlah) as total 
-                 FROM kas WHERE YEAR(tanggal) = 2026 AND jenis = 'keluar' GROUP BY MONTH(tanggal)";
-$result_keluar = mysqli_query($conn, $query_keluar);
-if ($result_keluar) {
-    while ($row = mysqli_fetch_assoc($result_keluar)) {
-        $index = $row['bulan'] - 4;
-        if ($index >= 0 && $index < 9) $data_pengeluaran_real[$index] = (int)$row['total'];
-    }
-}
+// 1. Ambil Grand Total Pemasukan (Iuran Anggota + Kas Masuk)
+$query_total_masuk = mysqli_query($conn, "
+    SELECT 
+        (SELECT COALESCE(SUM(nominal), 0) FROM iuran_anggota) + 
+        (SELECT COALESCE(SUM(jumlah), 0) FROM kas WHERE jenis = 'masuk') AS total
+");
+$total_pemasukan_all = mysqli_fetch_assoc($query_total_masuk)['total'];
 
-// Jika data real kosong, gunakan data simulasi yang lebih dinamis
-$has_real_data = array_sum($data_pemasukan_real) > 0 || array_sum($data_pengeluaran_real) > 0;
+// 2. Ambil Grand Total Pengeluaran (Kas Keluar)
+$query_total_keluar = mysqli_query($conn, "
+    SELECT COALESCE(SUM(jumlah), 0) AS total FROM kas WHERE jenis = 'keluar'
+");
+$total_pengeluaran_all = mysqli_fetch_assoc($query_total_keluar)['total'];
 
-if (!$has_real_data) {
-    // Data simulasi dinamis (naik turun natural)
-    $data_pemasukan = [150000, 95000, 120000, 80000, 175000, 130000, 160000, 110000, 190000];
-    $data_pengeluaran = [70000, 45000, 85000, 30000, 95000, 50000, 75000, 40000, 90000];
-} else {
-    // Gunakan data real + prediksi untuk bulan depan
-    $data_pemasukan = $data_pemasukan_real;
-    $data_pengeluaran = $data_pengeluaran_real;
-    
-    // Isi bulan kosong dengan estimasi
-    $last_masuk = 0;
-    $last_keluar = 0;
-    for ($i = 0; $i < 9; $i++) {
-        if ($data_pemasukan[$i] > 0) $last_masuk = $data_pemasukan[$i];
-        if ($data_pengeluaran[$i] > 0) $last_keluar = $data_pengeluaran[$i];
-        
-        if ($data_pemasukan[$i] == 0 && $i > 0) {
-            $variation = rand(-20, 20) / 100;
-            $data_pemasukan[$i] = round($last_masuk * (1 + $variation));
-        }
-        if ($data_pengeluaran[$i] == 0 && $i > 0) {
-            $variation = rand(-15, 15) / 100;
-            $data_pengeluaran[$i] = round($last_keluar * (1 + $variation));
+// 3. Ambil Data Pemasukan per Bulan untuk Grafik (Digabung Iuran & Kas Masuk)
+$query_masuk_chart = mysqli_query($conn, "
+    SELECT bulan, SUM(total) as total_per_bulan FROM (
+        SELECT MONTH(tanggal_bayar) as bulan, nominal as total FROM iuran_anggota WHERE YEAR(tanggal_bayar) = '$tahun_ini'
+        UNION ALL
+        SELECT MONTH(tanggal) as bulan, jumlah as total FROM kas WHERE jenis = 'masuk' AND YEAR(tanggal) = '$tahun_ini'
+    ) AS gabungan_masuk GROUP BY bulan
+");
+if ($query_masuk_chart) {
+    while ($row = mysqli_fetch_assoc($query_masuk_chart)) {
+        $index = $row['bulan'] - 1;
+        if ($index >= 0 && $index < 12) {
+            $data_pemasukan[$index] = (int)$row['total_per_bulan'];
         }
     }
 }
 
-// Hitung saldo kumulatif
-$saldo_awal = 80000;
-$data_saldo = [];
-$saldo_kumulatif = $saldo_awal;
-foreach ($data_pemasukan as $i => $masuk) {
-    $keluar = $data_pengeluaran[$i];
-    $saldo_kumulatif += ($masuk - $keluar);
-    $data_saldo[] = $saldo_kumulatif;
+// 4. Ambil Data Pengeluaran per Bulan untuk Grafik (Kas Keluar)
+$query_keluar_chart = mysqli_query($conn, "
+    SELECT MONTH(tanggal) as bulan, SUM(jumlah) as total 
+    FROM kas WHERE YEAR(tanggal) = '$tahun_ini' AND jenis = 'keluar' GROUP BY MONTH(tanggal)
+");
+if ($query_keluar_chart) {
+    while ($row = mysqli_fetch_assoc($query_keluar_chart)) {
+        $index = $row['bulan'] - 1;
+        if ($index >= 0 && $index < 12) {
+            $data_pengeluaran[$index] = (int)$row['total'];
+        }
+    }
 }
 
-// Cari nilai tertinggi dari seluruh rangkaian data untuk standarisasi skala Y-Axis
-$all_values = array_merge($data_pemasukan, $data_pengeluaran, $data_saldo);
-$highest_val = max($all_values);
+// Cari nilai tertinggi untuk standarisasi skala Y-Axis grafik
+$highest_val = max(array_merge($data_pemasukan, $data_pengeluaran));
+if ($highest_val == 0) $highest_val = 100000; // Skala minimum jika data masih 0
 $max_global_grid = ceil($highest_val / 50000) * 50000;
-if ($max_global_grid < 100000) $max_global_grid = 200000;
+if ($max_global_grid < 100000) $max_global_grid = 100000;
 
-// Fungsi modifikasi untuk membuat path kurva halus dengan skala seragam (forced max)
+// Fungsi pembuatan kurva SVG (Tanpa diubah)
 function makeSmoothPathUniform($points, $forced_max, $width = 460, $height = 150, $padding_left = 40, $padding_top = 20) {
     $max_val = $forced_max;
     $min_val = 0;
@@ -130,10 +115,8 @@ function makeSmoothPathUniform($points, $forced_max, $width = 460, $height = 150
 
 function rp($n) { return 'Rp '.number_format($n,0,',','.'); }
 
-$pts_masuk = [];
-foreach ($data_pemasukan as $v) $pts_masuk[] = ['v' => $v];
-$pts_keluar = [];
-foreach ($data_pengeluaran as $v) $pts_keluar[] = ['v' => $v];
+$pts_masuk = []; foreach ($data_pemasukan as $v) $pts_masuk[] = ['v' => $v];
+$pts_keluar = []; foreach ($data_pengeluaran as $v) $pts_keluar[] = ['v' => $v];
 
 $chart_masuk = makeSmoothPathUniform($pts_masuk, $max_global_grid);
 $chart_keluar = makeSmoothPathUniform($pts_keluar, $max_global_grid);
@@ -210,11 +193,11 @@ $chart_keluar = makeSmoothPathUniform($pts_keluar, $max_global_grid);
                 <div class="chart-header-row row align-items-center">
                     <div class="col-6">
                         <h6 class="overview-title text-primary"><i class="fa fa-arrow-down me-1"></i> Total Pemasukan</h6>
-                        <div class="overview-total text-primary" style="font-size: 1.4rem;"><?php echo rp(array_sum($data_pemasukan)); ?></div>
+                        <div class="overview-total text-primary" style="font-size: 1.4rem;"><?php echo rp($total_pemasukan_all); ?></div>
                     </div>
                     <div class="col-6 text-end">
                         <h6 class="overview-title text-danger"><i class="fa fa-arrow-up me-1"></i> Total Pengeluaran</h6>
-                        <div class="overview-total text-danger" style="font-size: 1.4rem;"><?php echo rp(array_sum($data_pengeluaran)); ?></div>
+                        <div class="overview-total text-danger" style="font-size: 1.4rem;"><?php echo rp($total_pengeluaran_all); ?></div>
                     </div>
                 </div>
                 
@@ -259,7 +242,7 @@ $chart_keluar = makeSmoothPathUniform($pts_keluar, $max_global_grid);
                 <div class="chart-legend-row d-flex justify-content-center gap-4 mt-2">
                     <div class="chart-legend-item d-flex align-items-center gap-2">
                         <div class="chart-legend-dot" style="background:#4a90d9; width:12px; height:12px; border-radius:3px;"></div>
-                        <span class="small fw-bold text-muted">Pemasukan (Iuran)</span>
+                        <span class="small fw-bold text-muted">Pemasukan (Iuran + Kas Masuk)</span>
                     </div>
                     <div class="chart-legend-item d-flex align-items-center gap-2">
                         <div class="chart-legend-dot" style="background:#dc3545; width:12px; height:12px; border-radius:3px;"></div>

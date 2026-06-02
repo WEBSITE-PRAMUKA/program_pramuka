@@ -246,7 +246,7 @@ justify-content:center;
         <a class="navbar-brand fw-bold" href="#">Pramuka</a>
         <nav class="navbar navbar-expand-lg">
             <div class="ms-auto">
-                <a href="../pages/beranda1.php" class="btn btn-outline-secondary btn-sm">Kembali</a>
+                <a href="../index.php" class="btn btn-outline-secondary btn-sm">Kembali</a>
                 <a href="login.php" class="btn btn-outline-secondary btn-sm">Login</a>
                 <a href="daftar.php" class="btn btn-outline-secondary btn-sm">Daftar Anggota</a>
             </div>
@@ -306,7 +306,7 @@ justify-content:center;
                 <div class="text-center mt-4">
                     <small class="register-link">
                         Belum punya akun?
-                        <a href="daftar.php">Daftar di sini</a>
+                        <a href="daftar.php">Daftarkan diri di sini</a>
                     </small>
                 </div>
             </div>

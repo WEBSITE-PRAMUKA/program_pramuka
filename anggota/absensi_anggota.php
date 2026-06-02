@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Asia/Jakarta');
 include "../config/koneksi.php";
 include "../assets/menu/anggota-navbar.php";
 
@@ -13,18 +14,28 @@ $nta = $_SESSION['nta'];
 $nama = $_SESSION['nama'];
 $role = $_SESSION['role'];
 
+// Proses Absensi
 if (isset($_POST['absen_sekarang'])) {
     $id_keg = $_POST['id_kegiatan'];
     $coords = $_POST['lokasi_gps'];
     $waktu  = date('Y-m-d H:i:s');
     
-    $cek = mysqli_query($conn, "SELECT * FROM absensi_hasil WHERE nta='$nta' AND id_kegiatan='$id_keg'");
+    // Cek apakah anggota sudah absen di kegiatan yang sama
+    $cek = mysqli_query($conn, "SELECT id_hasil FROM absensi_hasil WHERE nta='$nta' AND id_kegiatan='$id_keg'");
+    
     if (mysqli_num_rows($cek) == 0) {
-        mysqli_query($conn, "INSERT INTO absensi_hasil (id_kegiatan, nta, nama_anggota, waktu_absen, lokasi_anggota) 
+        // Jika belum, masukkan data
+        $insert = mysqli_query($conn, "INSERT INTO absensi_hasil (id_kegiatan, nta, nama_anggota, waktu_absen, lokasi_anggota) 
                             VALUES ('$id_keg', '$nta', '$nama', '$waktu', '$coords')");
-        echo "<script>alert('Absensi Berhasil!'); window.location='index_anggota.php';</script>";
+        
+        if($insert){
+            echo "<script>alert('Absensi Berhasil!'); window.location.href='absensi_anggota.php';</script>";
+            exit; // PENTING: Menghentikan eksekusi script agar tidak terjadi double insert
+        }
     } else {
-        echo "<script>alert('Anda sudah absen!');</script>";
+        // Jika sudah absen
+        echo "<script>alert('Anda sudah absen untuk kegiatan ini!'); window.location.href='absensi_anggota.php';</script>";
+        exit; // PENTING
     }
 }
 ?>
@@ -83,8 +94,16 @@ if (isset($_POST['absen_sekarang'])) {
             </div>
         </div>
     </div>
+
 <script>
+// Menambahkan variabel pengunci untuk mencegah klik berkali-kali
+let isProcessing = false;
+
 function getLocation() {
+    // Jika sedang diproses, hentikan klik selanjutnya
+    if (isProcessing) return; 
+    isProcessing = true;
+
     const btn = document.getElementById("btnProses");
     btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Mendeteksi Lokasi...';
     btn.disabled = true;
@@ -95,18 +114,32 @@ function getLocation() {
             document.getElementById("btnSubmit").click();
         }, function(error) {
             alert("Gagal mendeteksi lokasi. Harap izinkan akses lokasi di browser anda!");
+            // Reset tombol jika gagal
             btn.innerHTML = '<i class="fa fa-fingerprint me-2"></i> ABSEN SEKARANG';
             btn.disabled = false;
+            isProcessing = false;
+        }, {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
         });
     } else {
         alert("Browser anda tidak mendukung fitur GPS.");
         btn.innerHTML = '<i class="fa fa-fingerprint me-2"></i> ABSEN SEKARANG';
         btn.disabled = false;
+        isProcessing = false;
     }
 }
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+
 </body>
 </html>
 <?php include "../assets/menu/footer.php"; ?>

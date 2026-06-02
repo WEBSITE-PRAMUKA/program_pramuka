@@ -83,8 +83,8 @@ if (!isset($_SESSION['status_login']) || $_SESSION['role'] != 'admin') {
                                 <small class="text-muted"><i class="fa fa-image me-1"></i> 1 Photo</small>
                             </div>
                             <div class="d-flex gap-2">
-                                <a href="../galeri/edit_galeri.php?id=<?= $row['id_galeri'] ?>" class="btn btn-sm btn-light border w-100 fw-bold"><i class="fa fa-edit me-1"></i> Edit</a>
-                                <a href="../galeri/hapus_galeri.php?id=<?= $row['id_galeri'] ?>" class="btn btn-sm btn-light border w-100 text-danger fw-bold" onclick="return confirm('Hapus album?')"><i class="fa fa-trash me-1"></i> Delete</a>
+                                <a href="../admin/edit_galeri.php?id=<?= $row['id_galeri'] ?>" class="btn btn-sm btn-light border w-100 fw-bold"><i class="fa fa-edit me-1"></i> Edit</a>
+                                <a href="../admin/hapus_galeri.php?id=<?= $row['id_galeri'] ?>" class="btn btn-sm btn-light border w-100 text-danger fw-bold" onclick="return confirm('Hapus album?')"><i class="fa fa-trash me-1"></i> Delete</a>
                             </div>
                         </div>
                     </div>

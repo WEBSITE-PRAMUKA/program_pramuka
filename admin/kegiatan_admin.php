@@ -49,7 +49,7 @@ if (!isset($_SESSION['status_login']) || $_SESSION['role'] != 'admin') {
                                 </td>
                                 <td><small><?= $row['tanggal'] ?></small></td>
                                 <td class="text-center">
-                                    <a href="hapus_kegiatan.php?id=<?= $row['id_kegiatan'] ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Hapus kegiatan ini?')"><i class="fa fa-trash"></i></a>
+                                    <a href="../kegiatan/hapus_kegiatan.php?id=<?= $row['id_kegiatan'] ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Hapus kegiatan ini?')"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                             <?php endwhile; ?>

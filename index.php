@@ -14,41 +14,46 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- External CSS -->
-    <link rel="stylesheet" href="../assets/css/beranda1-style.css">
+    <link rel="stylesheet" href="./assets/css/beranda1-style.css">
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top transition-navbar">
+<nav class="navbar navbar-expand-lg fixed-top transition-navbar">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center fw-bold" href="#"></a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-toggle="target="#navbarNav">
+            <a class="navbar-brand d-flex align-items-center fw-bold" >
+                <img src="./assets/LOGO/logo-bg.png" alt="Logo Tunas Kelapa" height="47" class="me-2">
+                 <img src="./assets/LOGO/Wosm-Negatif.png" alt="Wosm Negatif" height="55" class="me-2">
+                </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fas fa-bars text-white"></i>
             </button>
+            
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav mx-auto gap-3">
-                    <li class="nav-item"><a class="nav-link" href="beranda1.php">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../auth/daftar.php">Pendaftaran</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../galeri/GaleryLog.php">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./auth/daftar.php">Pendaftaran</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./galeri/GaleryLog.php">Galeri</a></li>
                 </ul>
             </div>
+            
             <div class="d-none d-lg-flex gap-2">
-                <a href="../auth/login.php" class="btn btn-outline-light btn-sm rounded-pill px-3">Login</a>
-                <a href="../auth/daftar.php" class="btn btn-pramuka-yellow btn-sm rounded-pill px-3 fw-semibold">Daftar Anggota</a>
+                <a href="./auth/login.php" class="btn btn-outline-light btn-sm rounded-pill px-3">Login</a>
+                <a href="./auth/daftar.php" class="btn btn-pramuka-yellow btn-sm rounded-pill px-3 fw-semibold">Daftar Anggota</a>
             </div>
         </div>
     </nav>
-
     <!-- Hero Section -->
-    <header class="hero-section" style="background: linear-gradient(135deg, rgba(27, 58, 26, 0.55), rgba(45, 90, 39, 0.55)), url('../assets/BG/BG.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <header class="hero-section" style="background: linear-gradient(135deg, rgba(27, 58, 26, 0.55), rgba(45, 90, 39, 0.55)), url('./assets/BG/BG.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         
         <div class="hero-overlay"></div>
         <div class="container hero-content" data-aos="zoom-in" data-aos-duration="1000">
-            <h1 class="display-3 fw-bold hero-title">Satyaku Kudarmabaktikan<br>Darmaku Kubaktikan</h1>
+            <h1 class="display-3 fw-bold hero-title">Satyaku Kudarmakan<br>Darmaku Kubaktikan</h1>
             <p class="lead my-4 mx-auto hero-subtitle">Bergabunglah dengan Gerakan Pramuka Indonesia untuk mengembangkan karakter, keterampilan, dan jiwa kepemimpinan Anda.</p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="../auth/daftar.php" class="btn btn-pramuka-yellow btn-lg px-4 py-2 hover-bounce">Daftar Anggota <i class="fas fa-chevron-right ms-1"></i></a>
-                <a href="../auth/login.php" class="btn btn-outline-light btn-lg px-4 py-2 hover-float">Masuk</a>
+                <a href="./auth/daftar.php" class="btn btn-pramuka-yellow btn-lg px-4 py-2 hover-bounce">Daftar Anggota <i class="fas fa-chevron-right ms-1"></i></a>
+                <a href="./auth/login.php" class="btn btn-outline-light btn-lg px-4 py-2 hover-float">Masuk</a>
             </div>
         </div>
         
@@ -73,9 +78,11 @@
                         <div class="text-center mb-3"><i class="fas fa-book-open text-warning fs-2"></i></div>
                         <h5 class="fw-bold border-bottom pb-2 text-center">Sejarah Singkat Kepramukaan</h5>
                         <ul class="small text-muted mt-3 custom-list">
-                            <li>Tokoh-tokoh kepramukaan banyak lahir di zaman Perang Dunia Pertama.</li>
-                            <li>Baden Powell awalnya membawa kegiatannya ke luar Inggris.</li>
+                            <li>1907 (Awal Mula Dunia): Robert Baden-Powell menginisiasi perkemahan remaja pertama di Pulau Brownsea, Inggris, yang menjadi cikal bakal kepanduan dunia.</li>
                             <li>Buku "Scouting for Boys" menjadi awal populer kepanduan dunia.</li>
+                            <li>1912 (Masuk ke Indonesia): Semangat kepanduan masuk ke tanah air pada masa kolonial melalui organisasi bentukan Belanda, NIPV.</li>
+                            <li>Masa Pergerakan Nasional: Terinspirasi dari global, para tokoh bangsa mendirikan puluhan organisasi kepanduan lokal berbasis nasionalisme yang turut mengobarkan semangat Sumpah Pemuda.</li>
+                            <li>1961 (Lahirnya Gerakan Pramuka): Presiden Soekarno melebur seluruh organisasi kepanduan yang terpecah menjadi satu wadah tunggal bernama Gerakan Pramuka.</li>
                             <li>Gerakan Pramuka Indonesia resmi diperkenalkan pada 14 Agustus 1961.</li>
                         </ul>
                     </div>
@@ -96,7 +103,11 @@
                     <div class="service-icon"><i class="fas fa-user-plus"></i></div>
                     <h5 class="fw-bold mt-3">Pendaftaran Anggota</h5>
                     <p class="small text-muted flex-grow-1">Daftarkan diri Anda sebagai anggota secara online dengan cepat dan mudah.</p>
-                    <a href="../auth/daftar.php" class="text-success text-decoration-none fw-bold small link-hover"> Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+<<<<<<< HEAD:pages/beranda1.php
+                    <a href="../auth/daftar.php" class="text-success text-decoration-none fw-bold small link-hover"> Cek Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+=======
+                    <a href="./auth/daftar.php" class="text-success text-decoration-none fw-bold small link-hover">Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+>>>>>>> 5de7280bdd8bb30d46a473d230f4c41e0c2802c2:index.php
                 </div>
             </div>
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
@@ -126,7 +137,7 @@
             </div>
             <div class="col-md-6 mt-4 mt-md-0" data-aos="zoom-in-left">
                 <div class="img-wrapper">
-                    <img src="../assets/BG/GETHERING.jpg" class="img-fluid rounded-4 shadow-lg" alt="Pramuka">
+                    <img src="./assets/BG/GETHERING.jpg" class="img-fluid rounded-4 shadow-lg" alt="Pramuka">
                 </div>
             </div>
         </div>
